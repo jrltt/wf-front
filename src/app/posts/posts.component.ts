@@ -3,6 +3,7 @@ import { PostsService } from '../posts.service';
 import { IPost } from './posts';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-posts',
@@ -29,15 +30,32 @@ export class PostsComponent implements OnInit {
     );
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+  openDialogCreate(): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
       width: '250px',
-      data: { title: this.title }
+      data: {
+        title: this.title,
+        type: 'create'
+      },
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.title = result;
     });
+  }
+
+  openDialog(id: string): void {
+    this.dialog.open(
+      ModalComponent,
+      {
+        width: '400px',
+        data: {
+          title: 'HOla',
+          type: 'delete',
+          postId: id
+        }
+      }
+    );
   }
 }

@@ -1,0 +1,10 @@
+<p>
+  modal works!
+</p>
+<div *ngIf="data.type === 'create'">
+  <h1>CREATE!</h1>
+</div>
+
+<div *ngIf="data.type === 'delete'">
+  <h1 *ngIf="data.postId">data.postId {{ data.postId }}</h1>
+</div>
