@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PostsService } from './posts.service';
 import { PostsComponent } from './posts/posts.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
-
+import { MatButtonModule, MatDialog } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,9 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    MatDialog
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]
