@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { PostsService } from '../posts.service';
+import { IPosts } from './posts';
 
 @Component({
   selector: 'app-posts',
@@ -7,10 +9,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class PostsComponent implements OnInit {
-  post = 'Test';
-  constructor() { }
+  posts: IPosts[] = [];
+
+  constructor(private postsService: PostsService) { }
 
   ngOnInit() {
+    this.getPosts();
   }
 
+  getPosts(): void {
+    this.posts = this.postsService.getPosts();
+  }
 }

@@ -1,4 +1,5 @@
-<p>
-  posts works!
-  {{ post }}
-</p>
+<ul class="posts">
+  <li *ngFor="let post of posts">
+    {{ post.title }}
+  </li>
+</ul>
