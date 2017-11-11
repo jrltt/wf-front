@@ -18,6 +18,9 @@ export class PostsComponent implements OnInit {
   }
 
   getPosts(): void {
-    this.posts = this.postsService.getPosts();
+    this.postsService.getPosts().subscribe(
+      data => this.posts = data,
+      err => console.error('Something went wrong on getPosts!')
+    );
   }
 }

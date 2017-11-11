@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IPosts } from './posts/posts';
 
 @Injectable()
 export class PostsService {
+  private domain = 'https://wf-challenge-w938suq5.herokuapp.com';
+  private list = '/posts';
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  constructor() { }
-
-  getPosts(): IPosts[] {
-    return [
-      {
-        title: 'Madrid',
-        content: 'Lorem   ipsum   dolor   sit   amet,   consectetur   adipiscing   elit.',
-        lat: 40.41678,
-        long: -3.70379,
-        image_url: 'https://c2.staticflickr.com/2/1269/4670777817_d657cd9819_b.jpg'
-      }
-    ];
+  getPosts(): any {
+    const listUrl = `${this.domain}${this.list}`;
+    return this.http.get(listUrl);
   }
 }

@@ -1,5 +1,11 @@
 <ul class="posts">
   <li *ngFor="let post of posts">
-    {{ post.title }}
+    <h1>
+      {{ post.title }}
+    </h1>
+    <p>
+      {{ post.content }}
+    </p>
+    <img width="200" src="{{ post.image_url }}" alt="{{ post.title }}">
   </li>
 </ul>
