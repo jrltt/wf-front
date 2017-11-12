@@ -8,7 +8,7 @@ import { ModalComponent } from '../modal/modal.component';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css'],
+  styleUrls: ['./posts.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class PostsComponent implements OnInit {

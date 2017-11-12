@@ -1,15 +1,21 @@
 <button mat-button (click)="openDialogCreate()">Create</button>
-<ul class="posts">
-  <li *ngFor="let post of posts">
-    <h1>
-      <a routerLink="/post/{{post.id}}/detail">{{ post.title }}</a>
-    </h1>
-    <p> {{ post.content }} </p>
-    <ul>
-      <li> {{ post.lat }}</li>
-      <li> {{ post.long }}</li>
-    </ul>
-    <img width="200" src="{{ post.image_url }}" alt="{{ post.title }}">
-    <button mat-button (click)="openDialog(post.id)">Remove</button>
-  </li> 
-</ul>
+<div class="posts">
+  <div class="posts__item item" *ngFor="let post of posts">
+    <div class="item__card">
+      <div class="item__card--title">
+        <h1>
+          <a routerLink="/post/{{post.id}}/detail">{{ post.title }}</a>
+        </h1>
+        <button mat-button (click)="openDialog(post.id)">Remove</button> 
+      </div>
+      <div class="item__card--content">
+        <p> {{ post.content }} </p>
+        <ul>
+          <li> {{ post.lat }}</li>
+          <li> {{ post.long }}</li>
+        </ul>
+        <img width="200" src="{{ post.image_url }}" alt="{{ post.title }}">
+      </div>
+    </div>
+  </div> 
+</div>

@@ -1,0 +1,9 @@
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex-grow: 1;
+    flex: 0 0 33.3333%    
+  }
+}
