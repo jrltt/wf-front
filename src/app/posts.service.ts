@@ -20,4 +20,9 @@ export class PostsService {
     const showUrl = `${this.domain}${this.list}/${id}`;
     return this.http.get<IPost>(showUrl);
   }
+
+  createPost(data: IPost): Observable<IPost> {
+    const listUrl = `${this.domain}${this.list}`;
+    return this.http.post<IPost>(listUrl, { post: data });
+  }
 }

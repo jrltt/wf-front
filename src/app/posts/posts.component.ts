@@ -32,7 +32,7 @@ export class PostsComponent implements OnInit {
 
   openDialogCreate(): void {
     const dialogRef = this.dialog.open(ModalComponent, {
-      width: '250px',
+      width: '450px',
       data: {
         title: this.title,
         type: 'create'
@@ -49,7 +49,7 @@ export class PostsComponent implements OnInit {
     this.dialog.open(
       ModalComponent,
       {
-        width: '400px',
+        width: '450px',
         data: {
           title: 'HOla',
           type: 'delete',

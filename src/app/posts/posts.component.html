@@ -5,7 +5,11 @@
       <a routerLink="/post/{{post.id}}/detail">{{ post.title }}</a>
     </h1>
     <p> {{ post.content }} </p>
+    <ul>
+      <li> {{ post.lat }}</li>
+      <li> {{ post.long }}</li>
+    </ul>
     <img width="200" src="{{ post.image_url }}" alt="{{ post.title }}">
-    <button mat-button (click)="openDialog(post.id)">Basic</button>
+    <button mat-button (click)="openDialog(post.id)">Remove</button>
   </li> 
 </ul>

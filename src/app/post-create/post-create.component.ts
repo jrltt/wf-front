@@ -1,0 +1,25 @@
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { IPost } from '../posts/posts';
+import { Post } from '../posts/post';
+import { PostsService } from '../posts.service';
+
+@Component({
+  selector: 'app-post-create',
+  templateUrl: './post-create.component.html',
+  styleUrls: ['./post-create.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+})
+export class PostCreateComponent implements OnInit {
+  post: IPost = new Post;
+  constructor(private postService: PostsService) { }
+
+  ngOnInit() {
+  }
+
+  createPost(): any {
+    this.postService.createPost(this.post).subscribe(
+      (post: IPost) => console.log(`hi there, new post id:${post.id}`),
+      (err: any) => console.log(err)
+    );
+  }
+}
