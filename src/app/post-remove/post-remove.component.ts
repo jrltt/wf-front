@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { IPost } from '../posts/posts';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-remove',
@@ -7,10 +9,18 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class PostRemoveComponent implements OnInit {
-
-  constructor() { }
+  @Input() post: IPost;
+  constructor(private postsService: PostsService) { }
 
   ngOnInit() {
   }
 
+  removeById(id: number): void {
+    this.postsService.removePost(id).subscribe(
+      response => {
+        console.log('done');
+      },
+      err => console.error(err)
+    )
+  }
 }

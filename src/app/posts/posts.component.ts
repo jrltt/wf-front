@@ -38,22 +38,26 @@ export class PostsComponent implements OnInit {
         type: 'create'
       },
     });
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.title = result;
-    });
+        console.log('The dialog was closed ', result);
+        if (result && result.post) {
+          console.log('results w/data', result);
+        }
+      }
+    );
   }
 
-  openDialog(id: string): void {
+  openDialog(id: number): void {
+    console.log(id);
+    const removePost = this.posts.find((post: IPost) => post.id === id);
+    console.log('removePost', removePost);
     this.dialog.open(
       ModalComponent,
       {
         width: '450px',
         data: {
-          title: 'HOla',
-          type: 'delete',
-          postId: id
+          type: 'remove',
+          post: (removePost) ? removePost : null
         }
       }
     );

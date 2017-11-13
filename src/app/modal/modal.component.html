@@ -2,6 +2,6 @@
   <app-post-create></app-post-create>
 </div>
 
-<div *ngIf="data.type === 'delete'">
-  <h1 *ngIf="data.postId">data.postId {{ data.postId }}</h1>
+<div *ngIf="data.type === 'remove'">
+  <app-post-remove [post]="data.post"></app-post-remove>
 </div>

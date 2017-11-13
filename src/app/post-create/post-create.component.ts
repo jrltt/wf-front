@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { IPost } from '../posts/posts';
 import { Post } from '../posts/post';
 import { PostsService } from '../posts.service';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-post-create',
@@ -11,15 +12,28 @@ import { PostsService } from '../posts.service';
 })
 export class PostCreateComponent implements OnInit {
   post: IPost = new Post;
-  constructor(private postService: PostsService) { }
+  constructor(
+    private postService: PostsService,
+    public dialog: ModalComponent
+  ) {  }
 
   ngOnInit() {
   }
 
   createPost(): any {
     this.postService.createPost(this.post).subscribe(
-      (post: IPost) => console.log(`hi there, new post id:${post.id}`),
-      (err: any) => console.log(err)
+      (post: IPost) => {
+        console.log(`hi there, new post id:${post.id}`);
+        this.dialog.dialogRef.close({ post: post });
+      },
+      (err: any) => {
+        console.log(err);
+        this.dialog.close();
+      }
     );
+  }
+
+  closeModal(): void {
+    this.dialog.close();
   }
 }
