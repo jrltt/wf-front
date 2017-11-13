@@ -39,7 +39,6 @@ export class PostsComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed ', result);
         if (result && result.post) {
           console.log('results w/data', result);
         }
@@ -47,8 +46,7 @@ export class PostsComponent implements OnInit {
     );
   }
 
-  openDialog(id: number): void {
-    console.log(id);
+  openDialogRemove(id: number): void {
     const removePost = this.posts.find((post: IPost) => post.id === id);
     console.log('removePost', removePost);
     this.dialog.open(

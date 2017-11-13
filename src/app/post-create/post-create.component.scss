@@ -1,0 +1,48 @@
+.post-create {
+  &__header {
+    padding: 24px;
+    background-color: #dcdcdc;
+    margin-top: -24px;
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-bottom: 1rem;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &--title {
+      margin: 0;
+    }
+
+    &--close {
+      margin-left: auto;
+      cursor: pointer;
+    } 
+  }
+  
+  &__form {
+    &--title,
+    &--content,
+    &--image {
+      width: 100%;
+    }
+
+    &--location {
+      display: flex;
+      justify-content: space-between;
+
+      &__lat,
+      &__long {
+        width: 48%;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+}

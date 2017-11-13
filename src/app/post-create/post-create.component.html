@@ -1,26 +1,28 @@
 <div class="post-create container">
-  <pre>{{ post | json }}</pre>
   <div class="post-create__header">
     <h3 class="post-create__header--title">Create new post</h3>
+    <span class="post-create__header--close" (click)="closeModal()"><i class="material-icons">close</i></span>
   </div>
   <div class="post-create__form">
-    <mat-form-field>
+    <mat-form-field class="post-create__form--title">
       <input [(ngModel)]="post.title" matInput placeholder="Title">
     </mat-form-field>
   
-    <mat-form-field>
+    <mat-form-field class="post-create__form--content">
       <textarea [(ngModel)]="post.content" matInput placeholder="Content"></textarea>
     </mat-form-field>
   
-    <mat-form-field>
-      <input  type="number" [(ngModel)]="post.lat" matInput placeholder="Lat">
-    </mat-form-field>
+    <div class="post-create__form--location">
+      <mat-form-field class="post-create__form--location__lat">
+        <input  type="number" [(ngModel)]="post.lat" matInput placeholder="Lat">
+      </mat-form-field>
+      
+      <mat-form-field class="post-create__form--location__long">
+        <input type="number" [(ngModel)]="post.long" matInput placeholder="Long">
+      </mat-form-field>
+    </div>
   
-    <mat-form-field>
-      <input type="number" [(ngModel)]="post.long" matInput placeholder="Long">
-    </mat-form-field>
-  
-    <mat-form-field>
+    <mat-form-field class="post-create__form--image">
       <input [(ngModel)]="post.image_url" matInput placeholder="Image link">
     </mat-form-field>
   </div>
