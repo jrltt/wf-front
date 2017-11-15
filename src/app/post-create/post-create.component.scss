@@ -1,5 +1,5 @@
-.post-create {
-  &__header {
+.post__create {
+  &--header {
     padding: 24px;
     background-color: #dcdcdc;
     margin-top: -24px;
@@ -12,11 +12,11 @@
     align-items: center;
     justify-content: center;
     
-    &--title {
+    &__title {
       margin: 0;
     }
 
-    &--close {
+    &__close {
       margin-left: auto;
       cursor: pointer;
     } 

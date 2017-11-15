@@ -13,6 +13,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { ModalComponent } from './modal/modal.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostRemoveComponent } from './post-remove/post-remove.component';
+import { PostUpdateComponent } from './post-update/post-update.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PostRemoveComponent } from './post-remove/post-remove.component';
     PostDetailComponent,
     ModalComponent,
     PostCreateComponent,
-    PostRemoveComponent
+    PostRemoveComponent,
+    PostUpdateComponent
   ],
   imports: [
     BrowserModule,

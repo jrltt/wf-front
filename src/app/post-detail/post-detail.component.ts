@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostDetailComponent implements OnInit {
   post: IPost;
+  editPostFlag = false;
   constructor(
     private route: ActivatedRoute,
     private postsService: PostsService
@@ -26,5 +27,9 @@ export class PostDetailComponent implements OnInit {
       data => this.post = data,
       err => console.error(err)
     );
+  }
+
+  switchToEdit(): boolean {
+    return this.editPostFlag = !this.editPostFlag;
   }
 }

@@ -36,6 +36,13 @@ export class PostsService {
     );
   }
 
+  updatePost(data: IPost): Observable<any> {
+    const updateUrl = `${this.domain}${this.list}/${data.id}`;
+    return this.http.put(updateUrl, { post: data }).pipe(
+      catchError(this.handleError<IPost>(`Fail on update ${data.id}`))
+    );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

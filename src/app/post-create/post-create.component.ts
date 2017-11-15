@@ -21,6 +21,10 @@ export class PostCreateComponent implements OnInit {
   }
 
   createPost(): any {
+    console.log(this.post);
+    if (Object.keys(this.post).length <= 0) {
+      return console.log('error');
+    }
     this.postService.createPost(this.post).subscribe(
       (post: IPost) => {
         console.log(`hi there, new post id:${post.id}`);

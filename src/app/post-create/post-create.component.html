@@ -1,32 +1,32 @@
-<div class="post-create container">
-  <div class="post-create__header">
-    <h3 class="post-create__header--title">Create new post</h3>
-    <span class="post-create__header--close" (click)="closeModal()"><i class="material-icons">close</i></span>
+<div class="post__create container">
+  <div class="post__create--header">
+    <h3 class="post__create--header__title">Create new post</h3>
+    <span class="post__create--header__close" (click)="closeModal()"><i class="material-icons">close</i></span>
   </div>
-  <div class="post-create__form">
-    <mat-form-field class="post-create__form--title">
+  <div class="post__create--form">
+    <mat-form-field class="post__create--form--title">
       <input [(ngModel)]="post.title" matInput placeholder="Title">
     </mat-form-field>
   
-    <mat-form-field class="post-create__form--content">
+    <mat-form-field class="post__create--form__content">
       <textarea [(ngModel)]="post.content" matInput placeholder="Content"></textarea>
     </mat-form-field>
   
-    <div class="post-create__form--location">
-      <mat-form-field class="post-create__form--location__lat">
+    <div class="post__create--form__location">
+      <mat-form-field class="post__create--form__location__lat">
         <input  type="number" [(ngModel)]="post.lat" matInput placeholder="Lat">
       </mat-form-field>
       
-      <mat-form-field class="post-create__form--location__long">
+      <mat-form-field class="post__create--form__location__long">
         <input type="number" [(ngModel)]="post.long" matInput placeholder="Long">
       </mat-form-field>
     </div>
   
-    <mat-form-field class="post-create__form--image">
+    <mat-form-field class="post__create--form__image">
       <input [(ngModel)]="post.image_url" matInput placeholder="Image link">
     </mat-form-field>
   </div>
-  <div class="post-create__footer">
+  <div class="post__create--footer">
     <button mat-button (click)="closeModal()">Close</button>  
     <button mat-button (click)="createPost()">Create</button>  
   </div>

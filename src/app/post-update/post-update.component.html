@@ -1,0 +1,33 @@
+<pre>{{ post | json }}</pre>
+<div class="post__detail--header">
+  <mat-form-field class="post__detail--header__title">
+    <input [(ngModel)]="post.title" matInput placeholder="Title">
+  </mat-form-field>
+</div>
+<div class="post__detail--media">
+  <img class="post__detail--media__image" src="{{ post.image_url }}" alt="{{ post.title }}">
+  <mat-form-field class="post__detail--media__image">
+    <input [(ngModel)]="post.image_url" matInput placeholder="Image link">
+  </mat-form-field>     
+</div>
+<div class="post__detail--content">
+  <mat-form-field>
+    <textarea [(ngModel)]="post.content" matInput placeholder="Content"></textarea>
+  </mat-form-field>
+
+  <ul> 
+    <li>
+      <mat-form-field class="post__create--form__location__lat">
+        <input  type="number" [(ngModel)]="post.lat" matInput placeholder="Lat">
+      </mat-form-field>
+    </li>
+    <li>  
+      <mat-form-field class="post__create--form__location__long">
+        <input type="number" [(ngModel)]="post.long" matInput placeholder="Long">
+      </mat-form-field>
+    </li>
+  </ul>  
+</div>
+<div class="post__detail--actions">
+  <button mat-button (click)="update()">Update post</button>
+</div>

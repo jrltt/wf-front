@@ -1,3 +1,21 @@
-<h1 *ngIf="post">
-  {{ post.title }}
-</h1>
+<div *ngIf="post" class="post single-page">
+  <div class="post__actions">
+    <button mat-button (click)="switchToEdit()">Edit post</button>
+  </div>
+  <div *ngIf="!editPostFlag" class="post__detail">
+    <div class="post__detail--header">
+        <h1 class="post__detail--header__title">{{ post.title }}</h1>
+    </div>
+    <div class="post__detail--media">
+        <img class="post__detail--media__image" src="{{ post.image_url }}" alt="{{ post.title }}">        
+    </div>
+    <div class="post__detail--content">
+      <p> {{ post.content }}</p>
+      <ul>
+        <li>{{ post.lat }}</li>
+        <li>{{ post.long }}</li>
+      </ul>
+    </div>
+  </div>
+  <app-post-update *ngIf="editPostFlag" [post]="post" class="post__update"></app-post-update>
+</div>
