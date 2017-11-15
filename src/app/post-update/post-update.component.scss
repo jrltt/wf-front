@@ -1,0 +1,12 @@
+.post__detail--media__image--current {
+  max-width: 150px;
+}
+
+.post__detail--media__image--candidate {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.image--candidate__item {
+  flex: 0 0 25%;
+}

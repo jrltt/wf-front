@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PostsService } from './posts.service';
+import { ImagesService } from './images.service';
 import { PostsComponent } from './posts/posts.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { ModalComponent } from './modal/modal.component';
@@ -35,7 +36,10 @@ import { PostUpdateComponent } from './post-update/post-update.component';
     MatDialogModule,
     MatInputModule
   ],
-  providers: [PostsService],
+  providers: [
+    PostsService,
+    ImagesService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [ModalComponent]
 })

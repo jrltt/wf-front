@@ -1,11 +1,17 @@
 <pre>{{ post | json }}</pre>
 <div class="post__detail--header">
   <mat-form-field class="post__detail--header__title">
-    <input [(ngModel)]="post.title" matInput placeholder="Title">
+    <input [(ngModel)]="post.title" (input)="searchImage(post.title)" matInput placeholder="Title">
   </mat-form-field>
 </div>
 <div class="post__detail--media">
-  <img class="post__detail--media__image" src="{{ post.image_url }}" alt="{{ post.title }}">
+  <img class="post__detail--media__image--current" src="{{ post.image_url }}" alt="{{ post.title }}">
+  <div class="post__detail--media__image--candidate" *ngIf="candidateImagesUrl.length > 0">
+    <div class="image--candidate__item" *ngFor="let image of candidateImagesUrl">
+      <!-- <pre>{{ image | json }}</pre> -->
+      <img (click)="setImageUrl(image.webformatURL)" src="{{ image.previewURL }}" alt="{{ image.user }} {{ image.type }} {{ image.tags }}">
+    </div>
+  </div>
   <mat-form-field class="post__detail--media__image">
     <input [(ngModel)]="post.image_url" matInput placeholder="Image link">
   </mat-form-field>     

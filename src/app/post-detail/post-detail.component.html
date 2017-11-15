@@ -1,6 +1,9 @@
 <div *ngIf="post" class="post single-page">
   <div class="post__actions">
-    <button mat-button (click)="switchToEdit()">Edit post</button>
+    <button mat-button (click)="switchToEdit()">
+      <span *ngIf="!editPostFlag">Edit post</span>
+      <span *ngIf="editPostFlag">Show post</span>
+    </button>
   </div>
   <div *ngIf="!editPostFlag" class="post__detail">
     <div class="post__detail--header">

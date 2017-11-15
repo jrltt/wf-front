@@ -26,7 +26,7 @@ export class PostsService {
 
   createPost(data: IPost): Observable<IPost> {
     const listUrl = `${this.domain}${this.list}`;
-    return this.http.post<IPost>(listUrl, { post: data });
+    return this.http.post<IPost>(listUrl, data);
   }
 
   removePost(id: number): Observable<any> {
@@ -38,9 +38,7 @@ export class PostsService {
 
   updatePost(data: IPost): Observable<any> {
     const updateUrl = `${this.domain}${this.list}/${data.id}`;
-    return this.http.put(updateUrl, { post: data }).pipe(
-      catchError(this.handleError<IPost>(`Fail on update ${data.id}`))
-    );
+    return this.http.put(updateUrl, { post: data });
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
