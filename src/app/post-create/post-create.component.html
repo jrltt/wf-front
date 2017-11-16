@@ -4,7 +4,7 @@
     <span class="post__create--header__close" (click)="closeModal()"><i class="material-icons">close</i></span>
   </div>
   <div class="post__create--form">
-    <mat-form-field class="post__create--form--title">
+    <mat-form-field class="post__create--form__title">
       <input [(ngModel)]="post.title" matInput placeholder="Title">
     </mat-form-field>
   
@@ -13,11 +13,11 @@
     </mat-form-field>
   
     <div class="post__create--form__location">
-      <mat-form-field class="post__create--form__location__lat">
+      <mat-form-field class="post__create--form__location--lat">
         <input  type="number" [(ngModel)]="post.lat" matInput placeholder="Lat">
       </mat-form-field>
       
-      <mat-form-field class="post__create--form__location__long">
+      <mat-form-field class="post__create--form__location--long">
         <input type="number" [(ngModel)]="post.long" matInput placeholder="Long">
       </mat-form-field>
     </div>

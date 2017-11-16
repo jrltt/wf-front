@@ -1,5 +1,5 @@
 <div class="menu menu__actions">
-  <button mat-button (click)="openDialogCreate()" color="primary">Create</button>
+  <button class="menu__actions--create" mat-button (click)="openDialogCreate()" color="primary">Create</button>
 </div>
 <div class="posts">
   <div class="posts__item item" *ngFor="let post of posts">
@@ -13,7 +13,7 @@
         <img class="item__card--media__image" src="{{ post.image_url }}" alt="{{ post.title }}">
       </div>
       <div class="item__card--content">
-        <p> {{ post.content }} </p>
+        <p> {{ (post.content.length > 157) ? (post.content | slice:0:157) + '...' : (post.content) }} </p>
       </div>
       <div class="item__card--actions">
         <button class="item__card--actions__map" mat-mini-fab (click)="openDialogUpdateMarker({ lat: post.lat, long: post.long })">

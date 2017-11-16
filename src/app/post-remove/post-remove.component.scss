@@ -1,0 +1,32 @@
+@import './../../sass/colors';
+
+.post {
+  &__remove {
+    &--header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      &__title {
+        margin: 0;
+      }
+  
+      &__close {
+        margin-left: auto;
+        cursor: pointer;
+      } 
+    }
+
+    &--actions {
+      display: flex;
+      justify-content: flex-end;
+
+      &__button {
+         &.mat-button {
+           background-color: $remove-button;
+           color: white;
+         }
+      } 
+    }
+  }
+}

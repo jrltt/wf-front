@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
 import { IPost } from '../posts/posts';
 import { PostsService } from '../posts.service';
 import { ImagesService } from '../images.service';
@@ -11,6 +11,7 @@ import { ImagesService } from '../images.service';
 })
 export class PostUpdateComponent implements OnInit {
   @Input() post: IPost;
+  @Output() isUpdated = new EventEmitter<boolean>();
   candidateImagesUrl: any[] = [];
   constructor(
     private postService: PostsService,
@@ -28,6 +29,7 @@ export class PostUpdateComponent implements OnInit {
     this.postService.updatePost(this.post).subscribe(
       result => {
         console.log(result);
+        this.isUpdated.emit(true);
       },
       err => console.error(err)
     );
@@ -35,10 +37,8 @@ export class PostUpdateComponent implements OnInit {
 
   searchImage(param: string): void {
     // TODO: add some type of debounce
-    console.log('searchImage param ', param);
     this.imageService.getImages(param).subscribe(
       result => {
-        console.log(result);
         if (result && result.hits) {
           this.candidateImagesUrl = result.hits;
         }

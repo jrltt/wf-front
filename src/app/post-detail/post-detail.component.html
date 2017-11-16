@@ -20,5 +20,5 @@
       </ul>
     </div>
   </div>
-  <app-post-update *ngIf="editPostFlag" [post]="post" class="post__update"></app-post-update>
+  <app-post-update *ngIf="editPostFlag" [post]="post" class="post__update" (isUpdated)="isUpdated($event)"></app-post-update>
 </div>

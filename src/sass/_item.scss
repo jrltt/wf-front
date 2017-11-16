@@ -20,11 +20,11 @@
 
         &--anchor {
           text-decoration: none;
-          color: $green;
+          color: $main-color;
           transition: color ease 0.25s;
 
           &:hover {
-            color: darken($color: $green, $amount: 10%);
+            color: darken($color: $main-color, $amount: 10%);
           }
         }
       }
@@ -41,6 +41,11 @@
       }
     }
 
+    &--content {
+      min-height: 115px;
+      margin-bottom: 1.55rem;
+    }
+
     &--actions {
       display: flex;
       justify-content: flex-end;
@@ -48,7 +53,7 @@
 
       &__remove {
         &.mat-accent {
-          background-color: hsla(338, 100%, 38%, 0.918);
+          background-color: $remove-fat-button;
         }
       }
 
@@ -58,7 +63,7 @@
         }
 
         &.mat-accent {
-          background-color: #3899ef;
+          background-color: $map-fat-button;
         }
       }
     }

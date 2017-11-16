@@ -1,3 +1,12 @@
-<h1 *ngIf="post">{{ post.title }}</h1>
-<pre>{{ post | json }}</pre>
-<button mat-button (click)="removeById(post.id)">Remove</button>  
+<div class="post__remove">
+    <div class="post__remove--header">
+        <h3 class="post__remove--header__title" *ngIf="post">{{ post.title }}</h3>
+        <span class="post__remove--header__close" (click)="closeModal()"><i class="material-icons">close</i></span>
+    </div>
+    <div class="post__remove--content">
+        <p>Are you sure to delete this post?</p>
+    </div>
+    <div class="post__remove--actions">
+        <button class="post__remove--actions__button" mat-button (click)="removeById(post.id)">Remove</button>  
+    </div>
+</div>

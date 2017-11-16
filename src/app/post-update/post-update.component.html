@@ -1,4 +1,3 @@
-<pre>{{ post | json }}</pre>
 <div class="post__detail--header">
   <mat-form-field class="post__detail--header__title">
     <input [(ngModel)]="post.title" (input)="searchImage(post.title)" matInput placeholder="Title">
@@ -36,8 +35,7 @@
     </div>
   </div>  
   <div class="post__detail--content__map">
-    <h3 class="post__detail--media__image--candidate__title">Search on the map and click to set the location (lat & long)</h3>
-    <pre>{{post.lat| json }}{{post.long | json}}</pre>
+    <mat-hint align="left">Search on the map and click to set the location (lat & long)</mat-hint>
     <agm-map [latitude]="post.lat" [longitude]="post.long" (mapClick)="setLocation($event)">
       <agm-marker [latitude]="post.lat" [longitude]="post.long"></agm-marker>
     </agm-map>
