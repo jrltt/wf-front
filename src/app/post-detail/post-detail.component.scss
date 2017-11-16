@@ -1,3 +1,5 @@
+@import './../../sass/colors';
+
 .single-page {
   max-width: 600px;
   margin: 0 auto;
@@ -8,6 +10,15 @@
 
 .post__actions {
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+
+  &--switch {
+    &.mat-button {
+      background-color: $main-color;
+      color: white;
+    }
+  }
 }
 
 .post__detail {
@@ -17,4 +28,8 @@
       width: 100%;
     }
   }
+}
+
+agm-map {
+  height: 250px;
 }

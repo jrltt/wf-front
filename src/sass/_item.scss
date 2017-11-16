@@ -5,12 +5,28 @@
     border: 1px solid rgb(201, 201, 201);
     padding: 24px 16px 24px;
     border-radius: 2px;
+    box-shadow: 0 4px 10px 0 $shadow-color;
+    transition: box-shadow ease-in-out 0.35s;
+
+    &:hover {
+      box-shadow: -2px 6px 10px 0 darken($color: $shadow-color, $amount: 25%);
+    }
 
     &--header {
       &__title {
         font-size: 1.5rem;
         margin-top: 0;
         margin-bottom: 1rem;
+
+        &--anchor {
+          text-decoration: none;
+          color: $main-color;
+          transition: color ease 0.25s;
+
+          &:hover {
+            color: darken($color: $main-color, $amount: 10%);
+          }
+        }
       }
     }
 
@@ -22,6 +38,33 @@
         width: 100%;
         max-height: 170px;
         object-fit: cover;
+      }
+    }
+
+    &--content {
+      min-height: 115px;
+      margin-bottom: 1.55rem;
+    }
+
+    &--actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+
+      &__remove {
+        &.mat-accent {
+          background-color: $remove-fat-button;
+        }
+      }
+
+      &__map {
+        &.mat-mini-fab {
+          margin-right: 1rem;
+        }
+
+        &.mat-accent {
+          background-color: $map-fat-button;
+        }
       }
     }
   }

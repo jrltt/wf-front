@@ -1,3 +1,5 @@
+@import './../../sass/colors';
+
 .post__create {
   &--header {
     padding: 24px;
@@ -22,27 +24,36 @@
     } 
   }
   
-  &__form {
-    &--title,
-    &--content,
-    &--image {
+  &--form {
+    &__title,
+    &__content,
+    &__image {
       width: 100%;
     }
 
-    &--location {
+    &__location {
       display: flex;
       justify-content: space-between;
 
-      &__lat,
-      &__long {
+      &--lat,
+      &--long {
         width: 48%;
       }
     }
   }
 
-  &__footer {
+  &--footer {
     display: flex;
     justify-content: flex-end;
     margin-top: 1rem;
+
+    &__create {
+      margin-left: 1rem;
+      
+      &.mat-button {
+        background-color: $main-color;
+        color: white;
+      }
+    }
   }
 }

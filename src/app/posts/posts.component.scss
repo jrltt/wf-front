@@ -1,3 +1,5 @@
+@import './../../sass/colors';
+
 .posts {
   display: flex;
   flex-wrap: wrap;
@@ -16,6 +18,21 @@
     
     @media screen and (min-width:880px) {
       flex-basis: 33.3333%;
+    }
+  }
+}
+
+.menu {
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    &--create {
+      &.mat-button {
+        color: white;
+        background-color: $main-color;
+      }
     }
   }
 }

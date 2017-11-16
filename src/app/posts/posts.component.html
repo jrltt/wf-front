@@ -1,25 +1,25 @@
 <div class="menu menu__actions">
-  <button mat-button (click)="openDialogCreate()" color="primary">Create</button>
+  <button class="menu__actions--create" mat-button (click)="openDialogCreate()" color="primary">Create</button>
 </div>
 <div class="posts">
   <div class="posts__item item" *ngFor="let post of posts">
     <div class="item__card">
       <div class="item__card--header">
         <h2 class="item__card--header__title">
-          <a routerLink="/post/{{post.id}}/detail">{{ post.title }}</a>
+          <a class="item__card--header__title--anchor" routerLink="/post/{{post.id}}/detail">{{ post.title }}</a>
         </h2>
       </div>
       <div class="item__card--media">
         <img class="item__card--media__image" src="{{ post.image_url }}" alt="{{ post.title }}">
       </div>
       <div class="item__card--content">
-        <p> {{ post.content }} </p>
+        <p> {{ (post.content.length > 157) ? (post.content | slice:0:157) + '...' : (post.content) }} </p>
       </div>
       <div class="item__card--actions">
-        <button mat-mini-fab (click)="openDialogUpdateMarker({ lat: post.lat, long: post.long })">
+        <button class="item__card--actions__map" mat-mini-fab (click)="openDialogUpdateMarker({ lat: post.lat, long: post.long })">
             <i class="material-icons" aria-label="Update latitude & longitude">room</i>
         </button>
-        <button mat-mini-fab (click)="openDialogRemove(post.id)">
+        <button class="item__card--actions__remove" mat-mini-fab (click)="openDialogRemove(post.id)">
             <i class="material-icons" aria-label="Remove post">delete</i>
         </button>
       </div>

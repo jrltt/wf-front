@@ -22,7 +22,7 @@ export class PostCreateComponent implements OnInit {
 
   createPost(): any {
     console.log(this.post);
-    if (Object.keys(this.post).length <= 0) {
+    if (Object.keys(this.post).length <= 0) { // TODO: improve UX to show errors to user when fail
       return console.log('error');
     }
     this.postService.createPost(this.post).subscribe(

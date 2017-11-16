@@ -24,13 +24,18 @@ export class PostsComponent implements OnInit {
   }
 
   getPosts(): void {
+    this.refreshGetPosts();
+  }
+
+  private refreshGetPosts() {
     this.postsService.getPosts().subscribe(
-      data => this.posts = data.map<IPost>((post: any) => {
+      data => {
+        this.posts = data.map<IPost>((post: any) => {
           post.lat = +post.lat;
           post.long = +post.long;
           return post;
-        }
-      ),
+        });
+      },
       err => console.error('Something went wrong on getPosts!')
     );
   }
@@ -45,7 +50,7 @@ export class PostsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
         if (result && result.post) {
-          console.log('results w/data', result);
+          this.refreshGetPosts();
         }
       }
     );
@@ -53,8 +58,7 @@ export class PostsComponent implements OnInit {
 
   openDialogRemove(id: number): void {
     const removePost = this.posts.find((post: IPost) => post.id === id);
-    console.log('removePost', removePost);
-    this.dialog.open(
+    const dialogRef = this.dialog.open(
       ModalComponent,
       {
         width: '450px',
@@ -64,10 +68,14 @@ export class PostsComponent implements OnInit {
         }
       }
     );
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.done) {
+        this.refreshGetPosts();
+      }
+    });
   }
 
   openDialogUpdateMarker(data: { lat: number, long: number}): void {
-    console.log(data);
     const dialogRef = this.dialog.open(
       ModalComponent, {
       width: '650px',

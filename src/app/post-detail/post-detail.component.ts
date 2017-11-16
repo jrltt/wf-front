@@ -25,8 +25,6 @@ export class PostDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.postsService.getPostById(id).subscribe(
       data => {
-        
-        
         this.post = {
           id: data.id,
           title: data.title,
@@ -35,7 +33,6 @@ export class PostDetailComponent implements OnInit {
           long: +data.long,
           content: data.content
         };
-        console.log('data ', data, this.post);
       },
       err => console.error(err)
     );
@@ -43,5 +40,9 @@ export class PostDetailComponent implements OnInit {
 
   switchToEdit(): boolean {
     return this.editPostFlag = !this.editPostFlag;
+  }
+
+  isUpdated(flag: boolean) {
+    this.switchToEdit();
   }
 }

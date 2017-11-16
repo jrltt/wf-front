@@ -8,3 +8,12 @@
     margin: 0 auto;
   }
 }
+
+.main-title {
+  display: flex;
+  justify-content: center;
+  
+  &__header {
+    text-transform: uppercase;
+  }
+}
