@@ -26,7 +26,7 @@ export class PostsService {
 
   createPost(data: IPost): Observable<IPost> {
     const listUrl = `${this.domain}${this.list}`;
-    return this.http.post<IPost>(listUrl, data);
+    return this.http.post<IPost>(listUrl, { post: data });
   }
 
   removePost(id: number): Observable<any> {

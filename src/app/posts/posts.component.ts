@@ -25,7 +25,12 @@ export class PostsComponent implements OnInit {
 
   getPosts(): void {
     this.postsService.getPosts().subscribe(
-      data => this.posts = data,
+      data => this.posts = data.map<IPost>((post: any) => {
+          post.lat = +post.lat;
+          post.long = +post.long;
+          return post;
+        }
+      ),
       err => console.error('Something went wrong on getPosts!')
     );
   }
@@ -59,5 +64,18 @@ export class PostsComponent implements OnInit {
         }
       }
     );
+  }
+
+  openDialogUpdateMarker(data: { lat: number, long: number}): void {
+    console.log(data);
+    const dialogRef = this.dialog.open(
+      ModalComponent, {
+      width: '650px',
+      data: {
+        type: 'location',
+        lat: data.lat,
+        long: data.long
+      },
+    });
   }
 }

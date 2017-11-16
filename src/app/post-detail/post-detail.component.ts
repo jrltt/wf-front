@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css'],
+  styleUrls: ['./post-detail.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class PostDetailComponent implements OnInit {
@@ -24,7 +24,19 @@ export class PostDetailComponent implements OnInit {
   getPostById() {
     const id = +this.route.snapshot.paramMap.get('id');
     this.postsService.getPostById(id).subscribe(
-      data => this.post = data,
+      data => {
+        
+        
+        this.post = {
+          id: data.id,
+          title: data.title,
+          image_url: data.image_url,
+          lat: +data.lat,
+          long: +data.long,
+          content: data.content
+        };
+        console.log('data ', data, this.post);
+      },
       err => console.error(err)
     );
   }

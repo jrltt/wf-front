@@ -15,6 +15,7 @@ import { ModalComponent } from './modal/modal.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostRemoveComponent } from './post-remove/post-remove.component';
 import { PostUpdateComponent } from './post-update/post-update.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,10 @@ import { PostUpdateComponent } from './post-update/post-update.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAtViZ01DGqmbA1LA1oB0yQV74Zeh4_IN0'
+    })
   ],
   providers: [
     PostsService,

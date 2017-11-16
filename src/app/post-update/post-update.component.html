@@ -2,10 +2,12 @@
 <div class="post__detail--header">
   <mat-form-field class="post__detail--header__title">
     <input [(ngModel)]="post.title" (input)="searchImage(post.title)" matInput placeholder="Title">
+    <mat-hint align="left">Please type a title to search a new main image</mat-hint>
   </mat-form-field>
 </div>
 <div class="post__detail--media">
   <img class="post__detail--media__image--current" src="{{ post.image_url }}" alt="{{ post.title }}">
+  <h3 *ngIf="candidateImagesUrl.length > 0" class="post__detail--media__image--candidate__title">Please select a new image</h3>
   <div class="post__detail--media__image--candidate" *ngIf="candidateImagesUrl.length > 0">
     <div class="image--candidate__item" *ngFor="let image of candidateImagesUrl">
       <!-- <pre>{{ image | json }}</pre> -->
@@ -17,22 +19,29 @@
   </mat-form-field>     
 </div>
 <div class="post__detail--content">
-  <mat-form-field>
+  <mat-form-field class="post__detail--content__textarea">
     <textarea [(ngModel)]="post.content" matInput placeholder="Content"></textarea>
   </mat-form-field>
 
-  <ul> 
-    <li>
+  <div class="post__detail--content__location"> 
+    <div>
       <mat-form-field class="post__create--form__location__lat">
-        <input  type="number" [(ngModel)]="post.lat" matInput placeholder="Lat">
+        <input  type="number" [(ngModel)]="post.lat" matInput placeholder="Latitude">
       </mat-form-field>
-    </li>
-    <li>  
+    </div>
+    <div>  
       <mat-form-field class="post__create--form__location__long">
-        <input type="number" [(ngModel)]="post.long" matInput placeholder="Long">
+        <input type="number" [(ngModel)]="post.long" matInput placeholder="Longitude">
       </mat-form-field>
-    </li>
-  </ul>  
+    </div>
+  </div>  
+  <div class="post__detail--content__map">
+    <h3 class="post__detail--media__image--candidate__title">Search on the map and click to set the location (lat & long)</h3>
+    <pre>{{post.lat| json }}{{post.long | json}}</pre>
+    <agm-map [latitude]="post.lat" [longitude]="post.long" (mapClick)="setLocation($event)">
+      <agm-marker [latitude]="post.lat" [longitude]="post.long"></agm-marker>
+    </agm-map>
+  </div>
 </div>
 <div class="post__detail--actions">
   <button mat-button (click)="update()">Update post</button>

@@ -50,4 +50,9 @@ export class PostUpdateComponent implements OnInit {
   setImageUrl(path: string): void {
     this.post.image_url = path;
   }
+
+  setLocation($event: any) {
+    this.post.lat = $event.coords.lat;
+    this.post.long = $event.coords.lng;
+  }
 }
