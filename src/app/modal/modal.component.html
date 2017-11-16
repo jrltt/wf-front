@@ -1,0 +1,13 @@
+<div *ngIf="data.type === 'create'">
+  <app-post-create></app-post-create>
+</div>
+
+<div *ngIf="data.type === 'remove'">
+  <app-post-remove [post]="data.post"></app-post-remove>
+</div>
+
+<div *ngIf="data.type === 'location'">
+  <agm-map [latitude]="data.lat" [longitude]="data.long" [mapDraggable]="false" [zoomControl]="false" [zoom]="12" [scrollwheel]="false" [disableDoubleClickZoom]="false" [streetViewControl]="false">
+    <agm-marker [latitude]="data.lat" [longitude]="data.long"></agm-marker>
+  </agm-map>
+</div>

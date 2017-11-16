@@ -1,0 +1,3 @@
+<h1 *ngIf="post">{{ post.title }}</h1>
+<pre>{{ post | json }}</pre>
+<button mat-button (click)="removeById(post.id)">Remove</button>  

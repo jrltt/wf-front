@@ -1,18 +1,50 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule, MatDialogModule, MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-
+import { AppRoutingModule } from './app-routing.module';
+import { PostsService } from './posts.service';
+import { ImagesService } from './images.service';
+import { PostsComponent } from './posts/posts.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { ModalComponent } from './modal/modal.component';
+import { PostCreateComponent } from './post-create/post-create.component';
+import { PostRemoveComponent } from './post-remove/post-remove.component';
+import { PostUpdateComponent } from './post-update/post-update.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostsComponent,
+    PostDetailComponent,
+    ModalComponent,
+    PostCreateComponent,
+    PostRemoveComponent,
+    PostUpdateComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAtViZ01DGqmbA1LA1oB0yQV74Zeh4_IN0'
+    })
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    PostsService,
+    ImagesService
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule { }

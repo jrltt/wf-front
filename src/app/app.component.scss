@@ -1,0 +1,10 @@
+@import '../sass/style';
+
+.app {
+  max-width: 100%;
+
+  @media screen and (min-width:768px) { // TODO: include media sass mixin
+    max-width: 920px;
+    margin: 0 auto;
+  }
+}

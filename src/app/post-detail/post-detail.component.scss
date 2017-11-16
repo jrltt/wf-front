@@ -1,0 +1,20 @@
+.single-page {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #c9c9c9;
+  padding: 24px 16px 24px;
+  border-radius: 2px;
+}
+
+.post__actions {
+  margin-bottom: 1rem;
+}
+
+.post__detail {
+  &--media {
+    &__image {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
