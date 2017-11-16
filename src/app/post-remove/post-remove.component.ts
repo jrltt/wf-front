@@ -27,4 +27,8 @@ export class PostRemoveComponent implements OnInit {
       err => console.error(err)
     );
   }
+
+  closeModal(): void {
+    this.dialog.close();
+  }
 }
