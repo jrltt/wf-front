@@ -1,3 +1,5 @@
+@import './../../sass/colors';
+
 .post__create {
   &--header {
     padding: 24px;
@@ -44,5 +46,14 @@
     display: flex;
     justify-content: flex-end;
     margin-top: 1rem;
+
+    &__create {
+      margin-left: 1rem;
+      
+      &.mat-button {
+        background-color: $main-color;
+        color: white;
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 <div *ngIf="post" class="post single-page">
   <div class="post__actions">
-    <button mat-button (click)="switchToEdit()">
+    <button class="post__actions--switch" mat-button (click)="switchToEdit()">
       <span *ngIf="!editPostFlag">Edit post</span>
       <span *ngIf="editPostFlag">Show post</span>
     </button>
@@ -14,10 +14,11 @@
     </div>
     <div class="post__detail--content">
       <p> {{ post.content }}</p>
-      <ul>
-        <li>{{ post.lat }}</li>
-        <li>{{ post.long }}</li>
-      </ul>
+    </div>
+    <div class="post__detail--location">
+      <agm-map [latitude]="post.lat" [longitude]="post.long">
+        <agm-marker [latitude]="post.lat" [longitude]="post.long"></agm-marker>
+      </agm-map>
     </div>
   </div>
   <app-post-update *ngIf="editPostFlag" [post]="post" class="post__update" (isUpdated)="isUpdated($event)"></app-post-update>

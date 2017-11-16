@@ -24,12 +24,12 @@
 
   <div class="post__detail--content__location"> 
     <div>
-      <mat-form-field class="post__create--form__location__lat">
+      <mat-form-field class="post__detail--content__location__lat">
         <input  type="number" [(ngModel)]="post.lat" matInput placeholder="Latitude">
       </mat-form-field>
     </div>
     <div>  
-      <mat-form-field class="post__create--form__location__long">
+      <mat-form-field class="post__detail--content__location__long">
         <input type="number" [(ngModel)]="post.long" matInput placeholder="Longitude">
       </mat-form-field>
     </div>
@@ -42,5 +42,5 @@
   </div>
 </div>
 <div class="post__detail--actions">
-  <button mat-button (click)="update()">Update post</button>
+  <button class="post__detail--actions__update" mat-button (click)="update()">Update post</button>
 </div>

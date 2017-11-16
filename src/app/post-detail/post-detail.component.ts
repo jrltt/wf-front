@@ -42,7 +42,7 @@ export class PostDetailComponent implements OnInit {
     return this.editPostFlag = !this.editPostFlag;
   }
 
-  isUpdated(t: boolean) {
+  isUpdated(flag: boolean) {
     this.switchToEdit();
   }
 }

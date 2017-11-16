@@ -52,11 +52,26 @@
 
     &__location {
       display: flex;
+      justify-content: space-between;
+
+      &__long,
+      &__lat {
+        width: 100%;
+      }
     }
   }
 
   &--actions {
-
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    
+    &__update {
+      &.mat-button {
+        background-color: $main-color;
+        color: white;
+      }
+    }
   }
 }
   
